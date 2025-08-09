@@ -123,7 +123,7 @@ function createHeaders(sheet) {
   
   // Format header row
   var headerRange = sheet.getRange(1, 1, 1, headers.length);
-  headerRange.setBackground('#8B4513');
+  headerRange.setBackground('#f3701a');
   headerRange.setFontColor('white');
   headerRange.setFontWeight('bold');
   headerRange.setBorder(true, true, true, true, true, true);
