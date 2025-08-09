@@ -495,7 +495,13 @@ $('<style>').text(`
 
 // Intersection Observer for animations
 function initAnimations() {
-    if (!('IntersectionObserver' in window)) return;
+    // If IntersectionObserver isn't supported or user prefers reduced motion,
+    // reveal items immediately and skip animations to avoid staying invisible.
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!('IntersectionObserver' in window) || prefersReduced) {
+        $('.story-item, .detail-card, .gallery-item, .spotlight-item').css({ opacity: 1, transform: 'none' });
+        return;
+    }
 
     const observerOptions = {
         threshold: 0.1,
@@ -512,7 +518,8 @@ function initAnimations() {
     }, observerOptions);
     
     $('.story-item, .detail-card, .gallery-item, .spotlight-item').each(function() {
-        $(this).css('opacity', '0'); // Hide elements initially
+        // Hide elements initially only if we can observe them
+        $(this).css('opacity', '0');
         observer.observe(this);
     });
 }

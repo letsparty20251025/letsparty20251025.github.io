@@ -287,6 +287,16 @@ body {
     contain-intrinsic-size: 1000px 800px; /* reserve space to reduce layout shifts */
 }
 
+/*
+   Fix for some browsers where IntersectionObserver combined with
+   content-visibility keeps children (e.g., .story-item) from rendering/animating.
+   Force the story section to be fully renderable to ensure its items become visible.
+*/
+#story {
+    content-visibility: visible; /* override the auto behavior for this section */
+    contain-intrinsic-size: auto; /* let the browser size it normally */
+}
+
 /* Section Styles */
 section {
     padding: 80px 0;
@@ -1070,6 +1080,18 @@ section {
 
 .story-item {
     animation: fadeInUp 0.8s ease-out;
+}
+
+/* Respect users who prefer reduced motion: keep content visible and disable animations */
+@media (prefers-reduced-motion: reduce) {
+    .story-item,
+    .detail-card,
+    .gallery-item,
+    .spotlight-item {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
 
 /* Print Styles */
