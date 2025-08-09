@@ -335,7 +335,7 @@ function sendEmail(data) {
     
     // Send confirmation email to the guest if they provided an email
     if (data.email && data.email.trim() !== '') {
-      var guestSubject = 'RSVP 確認通知 - Johnny & Josephine 婚禮';
+      var guestSubject = '確認通知 - Johnny & Josephine 婚禮';
       var guestBody = createEmailBody(data, true); // true indicates guest email
       
       var guestOptions = {
@@ -377,7 +377,7 @@ function sendEmail(data) {
 }
 
 function createEmailBody(data, isGuestEmail) {
-  var attendanceStatus = data.attendance === 'yes' ? '&#x2705; 欣然接受' : '&#x274C; 忍痛拒絕';
+  var attendanceStatus = data.attendance === 'yes' ? '&#x2705; 我願意' : '&#x274C; 忍痛拒絕';
   var attendanceColor = data.attendance === 'yes' ? '#28a745' : '#dc3545';
   
   // Map dietary options to readable text
@@ -422,13 +422,13 @@ function createEmailBody(data, isGuestEmail) {
   else if (data.invitation === 'no') invitationText = '不需要';
   else invitationText = 'Not specified';
   
-  var title = isGuestEmail ? 'RSVP 確認通知' : 'New Wedding RSVP Response';
+  var title = isGuestEmail ? '確認通知' : 'New Wedding RSVP Response';
   var subtitle = isGuestEmail ? '感謝您的回覆' : 'New response received';
   
   var html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <div style="background: linear-gradient(135deg, #8B4513, #A0522D); padding: 30px; text-align: center; color: white;">
-        <h1 style="margin: 0; font-size: 28px; font-family: 'Dancing Script', cursive;">&#x1F495; ${title}</h1>
+      <div style="padding: 30px; text-align: center;">
+        <h1 style="margin: 0; font-size: 28px;">&#x1F495; ${title}</h1>
         <p style="margin: 10px 0 0 0; font-size: 16px;">${subtitle}</p>
       </div>
       
