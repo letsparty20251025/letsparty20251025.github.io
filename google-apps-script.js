@@ -569,7 +569,7 @@ function createEmailBody(data, isGuestEmail) {
           </table>
           
           ${isGuestEmail ? `
-          <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+          <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8f9fa; border: 1px solid #eee; border-radius: 10px;">
             <h3 style="color: #8B4513; margin: 0 0 15px 0;">婚禮資訊</h3>
             <p style="margin: 5px 0; color: #333;"><strong>日期：</strong>2025年10月25日 (星期六)</p>
             <p style="margin: 5px 0; color: #333;"><strong>時間：</strong>下午5:30</p>
@@ -577,12 +577,79 @@ function createEmailBody(data, isGuestEmail) {
             <p style="margin: 5px 0; color: #333;"><strong>地址：</strong>桃園市桃園區南平路166號</p>
             <p style="margin: 15px 0 0 0; color: #666; font-size: 14px;">期待與您共度這個特別的日子！</p>
           </div>
+
+          <!-- 交通資訊 -->
+          <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border: 1px solid #eee; border-radius: 10px;">
+            <h3 style="color: #8B4513; text-align: center; margin: 6px 0 16px 0;">交通資訊</h3>
+
+            <div style="text-align: center; margin: 10px 0 20px 0;">
+              <img src="https://letsparty20251025.github.io/ParkingInfoDetail.jpg" alt="交通與停車資訊 Traffic & Parking Info" style="max-width: 100%; height: auto; border: 1px solid #eee; border-radius: 6px;" />
+            </div>
+
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; margin-bottom: 16px;">
+              <tr>
+                <td style="width: 33.33%; text-align: center; padding: 8px;">
+                  <div style="color: #6c757d; font-size: 14px; margin-bottom: 4px;">Tel</div>
+                  <div style="color: #555;">(03)355-3555</div>
+                </td>
+                <td style="width: 33.33%; text-align: center; padding: 8px;">
+                  <div style="color: #6c757d; font-size: 14px; margin-bottom: 4px;">Address</div>
+                  <div style="color: #555;">33076 桃園市桃園區南平路166號</div>
+                </td>
+                <td style="width: 33.33%; text-align: center; padding: 8px;">
+                  <div style="color: #6c757d; font-size: 14px; margin-bottom: 4px;">Fax</div>
+                  <div style="color: #555;">(03)355-0606</div>
+                </td>
+              </tr>
+            </table>
+
+            <div style="text-align: left;">
+              <h4 style="margin: 14px 0 6px 0; color: #8B4513; font-size: 16px;">停車資訊</h4>
+              <p style="margin: 0 0 12px 0; color: #333;">賓客停車</p>
+              <p style="margin: 0 0 16px 0; color: #555; line-height: 1.6;">
+                本館備有停車位置：<br/>
+                P：晶宴會館附設停車場 <br/>
+                P：晶宴特約停車場，免費三小時停車
+              </p>
+
+              <h4 style="margin: 14px 0 6px 0; color: #8B4513; font-size: 16px;">大眾交通工具</h4>
+              <p style="margin: 0 0 6px 0; color: #333;">搭乘公車</p>
+              <p style="margin: 0 0 12px 0; color: #555; line-height: 1.6;">
+                A.請搭乘下列公車至「永昌新城站」下車：151、152。<br/>
+                B.請搭乘下列公車至「經國南平路口」下車：201、702、5059。<br/>
+                C.請搭乘下列公車至「中正藝文中心」下車：117、綠線GR。 ( 步行8分鐘 )
+              </p>
+
+              <p style="margin: 0 0 6px 0; color: #333;">搭乘客運</p>
+              <p style="margin: 0 0 12px 0; color: #555; line-height: 1.6;">
+                客運直達<br/>
+                A.統聯客運南崁站：轉乘201公車至「經國南平路口」下車。<br/>
+                B.桃園市政府：搭乘桃園客運188號至「南平同安街口」下車。<br/>
+                <br/>
+                捷運→客運<br/>
+                A.台北市市府轉運站：搭乘9005至「同安街口」下車。(即到達)<br/>
+                B.台北市圓山轉運站(玉門)：搭乘9023至「中正藝文特區」下車。(下車後需再直行至南平路右轉，步行約8分鐘)<br/>
+                <br/>
+                火車→客運<br/>
+                內壢火車站：請搭乘統聯客運168至「南平同安街口」下車。<br/>
+                <br/>
+                高鐵→客運<br/>
+                桃園高鐵站：請於桃園客運9號月台搭乘302及707A至「同安街口」下車。(下車即到達)
+              </p>
+
+              <h4 style="margin: 14px 0 6px 0; color: #8B4513; font-size: 16px;">自行開車</h4>
+              <p style="margin: 0; color: #555; line-height: 1.6;">
+                A.國道一號：南崁交流道下往桃園方向 → 靠右經國路 → 南平路右轉。<br/>
+                B.國道二號：南桃園交流道下往桃園方向 → 靠左大興西路三段 → 中正路左轉 → 南平路右轉。
+              </p>
+            </div>
+          </div>
           ` : ''}
         </div>
         
         <div style="text-align: center; margin-top: 25px; color: #666; font-size: 14px;">
           <p>此郵件由 RSVP 系統自動發送</p>
-          ${isGuestEmail ? '<p>如有任何問題，請直接回覆此郵件或聯繫新人</p>' : ''}
+          ${isGuestEmail ? '<p>如有任何問題，請聯繫新人</p>' : ''}
         </div>
       </div>
     </div>
