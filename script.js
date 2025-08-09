@@ -499,7 +499,8 @@ function initAnimations() {
     // reveal items immediately and skip animations to avoid staying invisible.
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!('IntersectionObserver' in window) || prefersReduced) {
-        $('.story-item, .detail-card, .gallery-item, .spotlight-item').css({ opacity: 1, transform: 'none' });
+        // Ensure non-story elements are visible; story items have no animations at all
+        $('.detail-card, .gallery-item, .spotlight-item').css({ opacity: 1, transform: 'none' });
         return;
     }
 
@@ -517,7 +518,7 @@ function initAnimations() {
         });
     }, observerOptions);
     
-    $('.story-item, .detail-card, .gallery-item, .spotlight-item').each(function() {
+    $('.detail-card, .gallery-item, .spotlight-item').each(function() {
         // Do not pre-hide; if IO fails, content remains visible.
         observer.observe(this);
     });
@@ -579,31 +580,7 @@ $(document).ready(function() {
     });
 });
 
-// Intersection Observer for story content animation
-function initStoryAnimation() {
-    const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-
-    // Observe all story content elements
-    document.querySelectorAll('.story-content').forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// Initialize story animation when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initStoryAnimation();
-});
+// No story-section animations; IntersectionObserver intentionally not used for story elements.
 
 // Export functions for testing (if needed)
 // Parking Modal Functions

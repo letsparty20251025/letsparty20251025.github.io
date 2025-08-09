@@ -1077,15 +1077,12 @@ section {
         transform: translateY(0);
     }
 }
-/* Class applied when an element should animate into view */
+/* Class applied when an element should animate into view (not used for story) */
 .reveal-in {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.story-item {
-    /* Visible by default; JS applies animation when intersecting */
-    animation: none;
-}
+
 
 /* Respect users who prefer reduced motion: keep content visible and disable animations */
 @media (prefers-reduced-motion: reduce) {
