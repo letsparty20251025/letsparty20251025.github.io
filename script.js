@@ -511,15 +511,14 @@ function initAnimations() {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                $(entry.target).css('animation', 'fadeInUp 0.8s ease-out forwards');
+                $(entry.target).addClass('reveal-in').css('opacity', '1');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
     $('.story-item, .detail-card, .gallery-item, .spotlight-item').each(function() {
-        // Hide elements initially only if we can observe them
-        $(this).css('opacity', '0');
+        // Do not pre-hide; if IO fails, content remains visible.
         observer.observe(this);
     });
 }
