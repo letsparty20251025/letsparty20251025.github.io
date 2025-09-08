@@ -402,7 +402,8 @@ function submitForm() {
     
     // AJAX submission to Google Apps Script
     $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbwe4l8LyuLhIAhAtfN7otEX1KdHf0lsdENNrDeXqrmqz4lf-ufEPHfZSKt_38ZJgZrC/exec",
+        // url: "https://script.google.com/macros/s/AKfycbwe4l8LyuLhIAhAtfN7otEX1KdHf0lsdENNrDeXqrmqz4lf-ufEPHfZSKt_38ZJgZrC/exec",
+        url: "https://script.google.com/macros/s/AKfycbxVIS5bQBwMLlhxSpEtlU8ryMibEoov7HXwOlqK0nSv_H2ys3WCMFZmyiI3ry9nVg0O/exec",
         method: "POST",
         dataType: "json",
         data: formData,
