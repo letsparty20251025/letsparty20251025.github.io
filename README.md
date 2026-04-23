@@ -185,3 +185,54 @@ This project is open source and available under the MIT License.
 ---
 
 *Made with ❤️ for your special day*
+
+```mermaid
+flowchart TD
+
+subgraph group_frontend["Static Frontend"]
+  node_index_html["Invitation Page<br/>html entry<br/>[index.html]"]
+  node_style_css["Theme Styles<br/>css presentation<br/>[style.css]"]
+  node_script_js["UI Logic<br/>browser orchestration<br/>[script.js]"]
+  node_cdn_libs(("CDN Libs<br/>external frontend deps"))
+end
+
+subgraph group_backend["Google Backend"]
+  node_apps_script["RSVP Backend<br/>apps script"]
+  node_sheets[("Guest Sheet<br/>google sheets store")]
+  node_mail(("Email Notify<br/>gmail/mail service"))
+end
+
+subgraph group_content["Support Content"]
+  node_gallery["Gallery Media<br/>static assets"]
+  node_prototype_hero["Hero Prototype<br/>design prototype<br/>[heroPage.html]"]
+end
+
+node_index_html -->|"styles"| node_style_css
+node_index_html -->|"loads"| node_script_js
+node_index_html -->|"depends on"| node_cdn_libs
+node_index_html -->|"renders"| node_gallery
+node_index_html -.->|"inspired by"| node_prototype_hero
+node_script_js -->|"posts RSVP"| node_apps_script
+node_apps_script -->|"writes"| node_sheets
+node_apps_script -->|"sends"| node_mail
+node_script_js -->|"drives UI"| node_index_html
+node_style_css -->|"frames media"| node_gallery
+
+click node_index_html "https://github.com/letsparty20251025/letsparty20251025.github.io/blob/public/index.html"
+click node_style_css "https://github.com/letsparty20251025/letsparty20251025.github.io/blob/public/style.css"
+click node_script_js "https://github.com/letsparty20251025/letsparty20251025.github.io/blob/public/script.js"
+click node_gallery "https://github.com/letsparty20251025/letsparty20251025.github.io/tree/public/static/gallery"
+click node_prototype_hero "https://github.com/letsparty20251025/letsparty20251025.github.io/blob/public/prototype/heroPage.html"
+click node_apps_script "https://github.com/letsparty20251025/letsparty20251025.github.io/blob/public/google-apps-script.js"
+
+classDef toneNeutral fill:#f8fafc,stroke:#334155,stroke-width:1.5px,color:#0f172a
+classDef toneBlue fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#172554
+classDef toneAmber fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f
+classDef toneMint fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
+classDef toneRose fill:#ffe4e6,stroke:#e11d48,stroke-width:1.5px,color:#881337
+classDef toneIndigo fill:#e0e7ff,stroke:#4f46e5,stroke-width:1.5px,color:#312e81
+classDef toneTeal fill:#ccfbf1,stroke:#0f766e,stroke-width:1.5px,color:#134e4a
+class node_index_html,node_style_css,node_script_js,node_cdn_libs toneBlue
+class node_apps_script,node_sheets,node_mail toneAmber
+class node_gallery,node_prototype_hero toneMint
+```
